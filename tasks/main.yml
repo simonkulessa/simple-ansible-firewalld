@@ -1,0 +1,9 @@
+---
+
+- name: include vars
+  include_vars: ../vars/vars.yml
+
+- name: set firewalld rules
+  firewalld: service={{ item.service }} permanent=true state=enabled zone={{ item.zone }} immediate=yes
+  with_items: "{{ firewall_rules }}"
+  notify: restart firewalld

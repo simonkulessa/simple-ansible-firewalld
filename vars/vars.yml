@@ -1,0 +1,9 @@
+
+
+firewall_rules:
+  - service: http
+    zone: public
+  - service: https
+    zone: public
+  - service: ssh
+    zone: public
